@@ -1,0 +1,6 @@
+This is an example text file. It contains words, numbers, and punctuation symbols.
+The numbers include both integers and floating-point numbers, such as 123, 456.789, and -0.123.
+The words include English words, abbreviations (e.g., etc., Mr., Dr.), names (e.g., John, Alice), and acronyms (e.g., NASA, FBI).
+Punctuation symbols such as commas, periods, parentheses ( ), and hyphens - are also present in the text.
+Repeated spaces should be considered as one space.
+The input files will fit in main memory.
