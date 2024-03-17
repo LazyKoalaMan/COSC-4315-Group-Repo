@@ -109,7 +109,6 @@ with open("example.txt", "r") as file:
 
 
 bubble_sort(lines1)
-bubble_sort(lines2)
 
 print(lines1)
 print(count_elements_recursive(lines1))
@@ -117,10 +116,6 @@ print("Duplicate Checker")
 lines1=duplicateRemover(lines1,count_elements_recursive(lines1))
 
 print(lines1)
-print(lines2)
-lines3=perform_set_operation(lines1,lines2,"union")
-lines3=perform_set_operation(lines1,lines2,"intersection")
-lines3=perform_set_operation(lines1,lines2,"difference")
 
 bubble_sort(lines3)
 print(lines3)
