@@ -12,5 +12,7 @@ You cannot existing Python libraries with advanced arrays, dictionary or hash ta
 tures. Therefore, you cannot their associated functions either. Why? They defeat a functional
 programming approach.
 
+I'M MAKING CHANGES
+
 
 Thien Ngo- Learning how to do indentions.
