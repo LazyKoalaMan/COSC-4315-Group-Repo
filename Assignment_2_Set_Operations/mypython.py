@@ -94,32 +94,42 @@ def bubble_sort(ar):
  #//https://www.geeksforgeeks.org/sort-an-array-using-bubble-sort-without-using-loops/
 
 
+    
+
+
 
 
 #===========================================Main=============================================================
 
-with open("example.txt", "r") as file:
+with open("example1.txt", "r") as file:
     lines1=[]
-    lines2=[]
-    lines3=[]
+    func=[] 
     for line in file:
-        line=line.lower()
-        line = line.replace(".", ",").replace(" ", ",")
-        lines1=line.split(",")
+        if(line[0]!="#"):
+            lines1.append(line)
+        start_index=line.find("def")
+        end_index=line.find("def")+len("def")
+        if(line[start_index:end_index]=="def"):
+            func.append(line)
+    
+    
+    modified_lines = []
+    in_function = False
+    
+    for line in file:
+        if line.startswith("def "):
+            in_function = True
+            modified_lines.append(line.strip()[:-1] + "):")
+        elif in_function and line.strip() == "":
+            modified_lines.append(line.strip())
+            modified_lines.append("    pass\n")
+            in_function = False
+        else:
+            modified_lines.append(line)
 
 
-bubble_sort(lines1)
+print(func)
 
-print(lines1)
-print(count_elements_recursive(lines1))
-print("Duplicate Checker")
-lines1=duplicateRemover(lines1,count_elements_recursive(lines1))
-
-print(lines1)
-
-bubble_sort(lines3)
-print(lines3)
-
-with open("result1.txt", "w") as result_file:
-    for line in lines3:
+with open("output.txt", "w") as result_file:
+    for line in lines1:
         result_file.write(line+" ")
