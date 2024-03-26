@@ -112,7 +112,7 @@ with open("example1.txt", "r") as file:
         if(line[start_index:end_index]=="def"):
             func.append(line)
     
-    
+
     modified_lines = []
     in_function = False
     
@@ -128,8 +128,8 @@ with open("example1.txt", "r") as file:
             modified_lines.append(line)
 
 
-print(func)
+    print(modified_lines)
 
-with open("output.txt", "w") as result_file:
-    for line in lines1:
-        result_file.write(line+" ")
+    with open("output.txt", "w") as result_file:
+        for line in lines1:
+            result_file.write(line+" ")
