@@ -93,6 +93,24 @@ def bubble_sort(ar):
     return bubble_sort(res[:-1]) + res[-1:]
  #//https://www.geeksforgeeks.org/sort-an-array-using-bubble-sort-without-using-loops/
 
+def add_brackets(line, index=0, stack=[]):
+    if index >= len(line):
+        return ""
+    if line[index] == '(':
+        stack.append('(')
+    elif line[index] == ')':
+        if stack:
+            stack.pop()
+    elif line[index] == ',' and stack:
+        return ',' + add_brackets(line, index + 1, stack)
+    elif line[index].isalnum() and not stack:
+        return '(' + line[index] + add_brackets(line, index + 1, ['('])
+    else:
+        return line[index] + add_brackets(line, index + 1, stack)
+
+    return line[index] + add_brackets(line, index + 1, stack)
+
+
 
     
 
@@ -103,14 +121,30 @@ def bubble_sort(ar):
 
 with open("example1.txt", "r") as file:
     lines1=[]
-    func=[] 
+    func=dict()
+    amount=0
+    funcExist=False
+
+    
     for line in file:
         if(line[0]!="#"):
             lines1.append(line)
-        start_index=line.find("def")
-        end_index=line.find("def")+len("def")
-        if(line[start_index:end_index]=="def"):
-            func.append(line)
+        if(funcExist==True):
+            if(line.find("return")==0):
+                func[amount].append(line)
+                funcExist=False
+            func[amount].append(line)
+        else:
+            start_index=line.find("def")
+            end_index=line.find("def")+len("def")
+            if(line[start_index:end_index]=="def"):
+                amount+=1
+                func[amount]=[line]
+                funcExist=True
+        
+    
+    print(func)
+
     
 
     modified_lines = []
@@ -122,13 +156,10 @@ with open("example1.txt", "r") as file:
             modified_lines.append(line.strip()[:-1] + "):")
         elif in_function and line.strip() == "":
             modified_lines.append(line.strip())
-            modified_lines.append("    pass\n")
+            modified_lines.append("pass\n")
             in_function = False
         else:
             modified_lines.append(line)
-
-
-    print(modified_lines)
 
     with open("output.txt", "w") as result_file:
         for line in lines1:
