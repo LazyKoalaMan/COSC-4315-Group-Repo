@@ -41,6 +41,13 @@ def deletion(listX, elemToCheck, numOccurrences, size) :
             return deletion(listX, elemToCheck, numOccurrences, size - 1) + [listX[size - 1]]
 
 
+def categorize(func,):
+    int amount = 0;
+    bool funcExist = false;
+    organized=dict()
+
+    return organized
+
 #===========================================Main=============================================================
 
 with open("example1.txt", "r") as file:
@@ -55,20 +62,18 @@ with open("example1.txt", "r") as file:
             lines1.append(line)
 
         if(funcExist==True):
-            if(line.find("return")>0):
+            if(line.find("return")>0):#End of function with first return, else handles if there is more returns.
                 funcExist=False
             func[amount].append(line)
         else:
             if(line.find("def")==-1 and funcExist==False and amount>=1):#Handles test case if there is more than 1 return.
                 func[amount].append(line)
-
             start_index=line.find("def")
             end_index=line.find("def")+len("def")
             if(line[start_index:end_index]=="def" and funcExist==False):
                 amount+=1
                 func[amount]=[line]
                 funcExist=True
-
 
 
     print(lines1)
