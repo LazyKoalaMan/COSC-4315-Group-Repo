@@ -1,3 +1,11 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include "scanner.h"
+
+using namespace std;
 
 int main(int argc, char* argv[]) {
     if (argc != 2) {
@@ -28,10 +36,12 @@ int main(int argc, char* argv[]) {
         std::cerr << "Failed to open file!" << std::endl;
         return 1;
     }
+    
     //Process 
+    cout<<lines1<<endl;
 
     for (const auto& f : func) {
-            output <<amount<< f << endl;
+            //output <<amount<< f << endl;
             amount++;
     }
     file.close();
