@@ -41,9 +41,7 @@ def deletion(listX, elemToCheck, numOccurrences, size) :
             return deletion(listX, elemToCheck, numOccurrences, size - 1) + [listX[size - 1]]
 
 
-def categorize(func,):
-    int amount = 0;
-    bool funcExist = false;
+def categorizeFunc(func,):
     organized=dict()
 
     return organized
@@ -75,7 +73,7 @@ with open("example1.txt", "r") as file:
                 func[amount]=[line]
                 funcExist=True
 
-
+    
     print(lines1)
     modified_lines = []
     in_function = False
