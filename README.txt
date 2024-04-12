@@ -3,5 +3,5 @@ The algorithm and essential code for the evaluatePostFix function was taken from
 Otherwise, Scanner.h is based upon the Java-based interpreter for Lox that is described in "Crafting Interpreters" by Robert Nystrom.
 
 the program can be compiled and executed with:
-g++ mypthon.cpp -o mypython
+g++ mypython.cpp -o mypython
 ./mypython <file.py>
